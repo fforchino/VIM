@@ -30,6 +30,12 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `messages`
+  ADD PRIMARY KEY (`msg_id`);
+
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+ALTER TABLE `messages`
   MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `users`
