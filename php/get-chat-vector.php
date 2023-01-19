@@ -5,9 +5,7 @@
 	if (isset($_SESSION['unique_id'])) {
 		$unique_id = $_SESSION['unique_id'];
 	}
-	if (empty($unique_id)) {
-		if (isset($_REQUEST['unique_id'])) $unique_id = $_REQUEST['unique_id'];
-	}
+	if (isset($_REQUEST['unique_id'])) $unique_id = $_REQUEST['unique_id'];
 	if(!empty($unique_id)){
         include_once "config.php";
         $output = "[";
@@ -18,7 +16,7 @@
 		}
 		else {
 			$sql = "SELECT * FROM messages LEFT JOIN users ON users.unique_id = messages.outgoing_msg_id
-			WHERE (incoming_msg_id = '{$unique_id}' and read=0) ORDER BY msg_id";
+			WHERE (incoming_msg_id = '{$unique_id}' and is_read=0) ORDER BY msg_id";
 		}
         $query = mysqli_query($conn, $sql);
 		$i=0;
